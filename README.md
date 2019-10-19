@@ -1,6 +1,7 @@
 <p align="center">
     <img src="https://img.shields.io/badge/Swift-4.2-orange" alt="Swift" />
     <img src="https://img.shields.io/badge/platform-osx-orange" alt="Platform" />
+    <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-orange" alt="SPM" />
     <img src="https://img.shields.io/badge/pod-compatible-orange" alt="CocoaPods" />
     <a href="https://github.com/SergeBouts/DocumentIndexer/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/licence-MIT-orange" alt="License" />
@@ -230,6 +231,21 @@ if indexer.uncompactedDocuments! > uncompactedDocumentsAllowance {
 Note: in case of a persistent document indexer the fragmentation state preserver must be specified to both creating and opening initializers.
 
 ## Installation
+
+### Swift Package as dependency in Xcode 11+
+
+1. Go to "File" -> "Swift Packages" -> "Add Package Dependency"
+2. Paste Document Indexer repository URL into the search field:
+
+`https://github.com/SergeBouts/DocumentIndexer.git`
+
+3. Click "Next"
+
+4. Ensure that the "Rules" field is set to something like this: "Version: Up To Next Major: 1.1.0"
+
+5. Click "Next" to finish
+
+For more info, check out [here](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
 
 ### CocoaPods
 
