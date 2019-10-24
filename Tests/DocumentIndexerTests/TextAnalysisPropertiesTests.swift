@@ -50,6 +50,23 @@ final class TextAnalysisPropertiesTests: XCTestCase {
         XCTAssertEqual(resultURLs, [])
     }
 
+    func test_stopwords() throws {
+        sut = InMemoryDocumentIndexer(autoflushStrategy: .beforeEachSearch, textAnalysisProperties: TextAnalysisProperties().customized({
+            $0.stopwords = .custom(isoLanguageCode: "en")
+        }))
+
+        XCTAssertNotNil(sut)
+        try populate()
+
+        var resultHits: [SearchHit] = []
+        sut!.search(for: "the") { hits, hasMore, shouldStop in
+            resultHits += hits
+        }
+
+        let resultURLs = Set(resultHits.map { $0.documentURL })
+        XCTAssertEqual(resultURLs, [])
+    }
+
     func test_substitutions() throws {
         sut = InMemoryDocumentIndexer(autoflushStrategy: .beforeEachSearch, textAnalysisProperties: TextAnalysisProperties().customized({
             $0.substitutions = ["bar": "the"] // replace "the" with "bar"

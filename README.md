@@ -17,7 +17,7 @@ A convenient *Swifty* wrapper for *Apple's Search Kit*.
 - Fast indexing and asynchronous searching
 - Google-like query syntax, including phrase-based, prefix/suffix/substring, and Boolean searching
 - Text summarization
-- Control over index characteristics, like minimum term length, synonyms, and substitutions
+- Control over index characteristics, like minimum term length, stopwords, synonyms, and substitutions
 - Flexible management of document hierarchies and indexes
 - Unicode support
 - Relevance ranking and statistical analysis of documents
@@ -26,6 +26,7 @@ A convenient *Swifty* wrapper for *Apple's Search Kit*.
 The goal of **Document Indexer** is to simplify work with *Core Foundation*-based *Search Kit* in *Swift* by making it more *Swift*-friendly. It provides:
 
 - In-memory (for lightning-fast search) and on-disk (for persistent storage) thread-safe text document indexers with all the functionality provided by *Apple's Search Kit*
+- Option to automatically use standard stopwords lists (custom stopwords can be provided too)
 - Auto-flushing capability, etc
 
  ## Usage
@@ -165,10 +166,13 @@ import DocumentIndexer
 let indexer = InMemoryDocumentIndexer(textAnalysisProperties: TextAnalysisProperties().customized({
     $0.minTermLength = 4
   	$0.substitutions = ["bar": "the"]
+    $0.stopwords = .custom(isoLanguageCode: "en")
 }))
 ```
 
-**Document Indexer** mirrors the Search Kit's text analysis properties described in [Text Analisys Keys](https://developer.apple.com/documentation/coreservices/search_kit/text_analysis_keys).
+Basically, **Document Indexer** just mirrors the Search Kit's text analysis properties described in [Text Analisys Keys](https://developer.apple.com/documentation/coreservices/search_kit/text_analysis_keys).
+
+Finally, **Document Indexer** is capable of taking on the heavy lifting of providing stopwords to the indexing. As shown in the example above, by setting `stopwords` to use specific language stopwords, we are forcing **Document Indexer** to use a standard stopword list for that language. There's also available the `.auto()` option to have **Document Indexer** automatically determine the user's preferred language (if unavailable, it uses the system one).
 
 ## Index flushing
 
@@ -241,7 +245,7 @@ Note: in case of a persistent document indexer the fragmentation state preserver
 
 3. Click "Next"
 
-4. Ensure that the "Rules" field is set to something like this: "Version: Up To Next Major: 1.1.0"
+4. Ensure that the "Rules" field is set to something like this: "Version: Up To Next Major: 1.2.0"
 
 5. Click "Next" to finish
 
