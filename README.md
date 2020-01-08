@@ -2,7 +2,6 @@
     <img src="https://img.shields.io/badge/Swift-4.2-orange" alt="Swift" />
     <img src="https://img.shields.io/badge/platform-osx-orange" alt="Platform" />
     <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-orange" alt="SPM" />
-    <img src="https://img.shields.io/badge/pod-compatible-orange" alt="CocoaPods" />
     <a href="https://github.com/SergeBouts/DocumentIndexer/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/licence-MIT-orange" alt="License" />
     </a>
@@ -245,28 +244,11 @@ Note: in case of a persistent document indexer the fragmentation state preserver
 
 3. Click "Next"
 
-4. Ensure that the "Rules" field is set to something like this: "Version: Up To Next Major: 1.2.0"
+4. Ensure that the "Rules" field is set to something like this: "Version: Up To Next Major: 1.3.0"
 
 5. Click "Next" to finish
 
 For more info, check out [here](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
-
-### CocoaPods
-
-Add the following to your [Podfile](http://guides.cocoapods.org/using/the-podfile.html):
-
-```ruby
-platform :osx, '10.12'
-
-target 'YOUR-TARGET' do
-  use_frameworks!
-  pod 'DocumentIndexer', :git => 'https://github.com/SergeBouts/DocumentIndexer.git'
-end
-```
-
-Then run `pod install`.
-
-See more [CocoaPods](http://cocoapods.org).
 
 ## License
 
