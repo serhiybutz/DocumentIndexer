@@ -2,7 +2,7 @@
     <img src="https://img.shields.io/badge/Swift-4.2-orange" alt="Swift" />
     <img src="https://img.shields.io/badge/platform-osx-orange" alt="Platform" />
     <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-orange" alt="SPM" />
-    <a href="https://github.com/SergeBouts/DocumentIndexer/blob/master/LICENSE">
+    <a href="https://github.com/SerhiyButz/DocumentIndexer/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/licence-MIT-orange" alt="License" />
     </a>
 </p>
@@ -240,7 +240,7 @@ Note: in case of a persistent document indexer the fragmentation state preserver
 1. Go to "File" -> "Swift Packages" -> "Add Package Dependency"
 2. Paste Document Indexer repository URL into the search field:
 
-`https://github.com/SergeBouts/DocumentIndexer.git`
+`https://github.com/SerhiyButz/DocumentIndexer.git`
 
 3. Click "Next"
 
